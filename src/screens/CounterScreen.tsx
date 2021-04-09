@@ -1,29 +1,25 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import Fab from '../components/Fab';
 
 const CounterScreen = () => {
   // Destructuring de styles
-  const {container, title, fabLocaltionRB, fabLocaltionLB, fab, fabText} = styles;
+  const {
+    container,
+    title,
+    fabLocaltionRB,
+    fabLocaltionLB,
+    fab,
+    fabText,
+  } = styles;
 
+  // state del contador
   const [counter, setCounter] = useState(0);
 
   return (
     <View style={container}>
       <Text style={title}>Counter: {counter}</Text>
-      <TouchableOpacity
-        onPress={() => setCounter(counter + 1)}
-        style={fabLocaltionRB}>
-        <View style={fab}>
-          <Text style={fabText}>+1</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => setCounter(counter - 1)}
-        style={fabLocaltionLB}>
-        <View style={fab}>
-          <Text style={fabText}>-1</Text>
-        </View>
-      </TouchableOpacity>
+      <Fab title="+1"/>
     </View>
   );
 };
