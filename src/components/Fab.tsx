@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableNativeFeedback} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableNativeFeedback,
+  Platform,
+  TouchableOpacity,
+} from 'react-native';
 
 interface Props {
   title: string;
@@ -11,15 +18,33 @@ const Fab = ({title, onPress, position = 'br'}: Props) => {
   // Destucturing de styles
   const {fabLocaltion, fab, fabText, left, right} = styles;
 
-  return (
-    <View style={[fabLocaltion, position === 'bl' ? left : right]}>
-      <TouchableNativeFeedback onPress={onPress} background={TouchableNativeFeedback.Ripple('#333', false, 30)}>
+  const ios = () => {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={[fabLocaltion, position === 'bl' ? left : right]}>
         <View style={fab}>
           <Text style={fabText}>{title}</Text>
         </View>
-      </TouchableNativeFeedback>
-    </View>
-  );
+      </TouchableOpacity>
+    );
+  };
+
+  const android = () => {
+    return (
+      <View style={[fabLocaltion, position === 'bl' ? left : right]}>
+        <TouchableNativeFeedback
+          onPress={onPress}
+          background={TouchableNativeFeedback.Ripple('#333', false, 30)}>
+          <View style={fab}>
+            <Text style={fabText}>{title}</Text>
+          </View>
+        </TouchableNativeFeedback>
+      </View>
+    );
+  };
+
+  return Platform.OS === 'ios' ? ios() : android();
 };
 
 const styles = StyleSheet.create({
