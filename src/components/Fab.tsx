@@ -1,34 +1,36 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableNativeFeedback} from 'react-native';
 
 interface Props {
   title: string;
+  position: 'br' | 'bl';
+  onPress: () => void;
 }
 
-const Fab = ({ title }: Props) => {
-    // Destucturing de styles
-  const {fabLocaltionRB, fab, fabText} = styles;
+const Fab = ({title, onPress, position = 'br'}: Props) => {
+  // Destucturing de styles
+  const {fabLocaltion, fab, fabText, left, right} = styles;
 
   return (
-    <TouchableOpacity
-      onPress={() => console.log('Click')}
-      style={fabLocaltionRB}>
-      <View style={fab}>
-        <Text style={fabText}>{title}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={[fabLocaltion, position === 'bl' ? left : right]}>
+      <TouchableNativeFeedback onPress={onPress} background={TouchableNativeFeedback.Ripple('#333', false, 30)}>
+        <View style={fab}>
+          <Text style={fabText}>{title}</Text>
+        </View>
+      </TouchableNativeFeedback>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  fabLocaltionRB: {
+  fabLocaltion: {
     position: 'absolute',
     bottom: 25,
+  },
+  right: {
     right: 25,
   },
-  fabLocaltionLB: {
-    position: 'absolute',
-    bottom: 25,
+  left: {
     left: 25,
   },
   fab: {
@@ -37,6 +39,15 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 100,
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+
+    elevation: 2,
   },
   fabText: {
     color: 'white',

@@ -6,11 +6,7 @@ const CounterScreen = () => {
   // Destructuring de styles
   const {
     container,
-    title,
-    fabLocaltionRB,
-    fabLocaltionLB,
-    fab,
-    fabText,
+    title
   } = styles;
 
   // state del contador
@@ -19,7 +15,9 @@ const CounterScreen = () => {
   return (
     <View style={container}>
       <Text style={title}>Counter: {counter}</Text>
-      <Fab title="+1"/>
+      <Fab position="br" onPress={() => setCounter(counter + 1)} title="+1" />
+      <Fab position="bl" onPress={() => setCounter(counter - 1)} title="-1" />
+
     </View>
   );
 };
@@ -33,30 +31,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     top: -1,
-  },
-  fabLocaltionRB: {
-    position: 'absolute',
-    bottom: 25,
-    right: 25,
-  },
-  fabLocaltionLB: {
-    position: 'absolute',
-    bottom: 25,
-    left: 25,
-  },
-  fab: {
-    backgroundColor: '#5856d6',
-    width: 60,
-    height: 60,
-    borderRadius: 100,
-    justifyContent: 'center',
-  },
-  fabText: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    alignSelf: 'center',
-  },
+  }
 });
 
 export default CounterScreen;
