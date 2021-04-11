@@ -4,10 +4,7 @@ import Fab from '../components/Fab';
 
 const CounterScreen = () => {
   // Destructuring de styles
-  const {
-    container,
-    title
-  } = styles;
+  const {container, title} = styles;
 
   // state del contador
   const [counter, setCounter] = useState(0);
@@ -17,7 +14,6 @@ const CounterScreen = () => {
       <Text style={title}>Counter: {counter}</Text>
       <Fab position="br" onPress={() => setCounter(counter + 1)} title="+1" />
       <Fab position="bl" onPress={() => setCounter(counter - 1)} title="-1" />
-
     </View>
   );
 };
@@ -31,7 +27,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     top: -1,
-  }
+  },
 });
 
 export default CounterScreen;
