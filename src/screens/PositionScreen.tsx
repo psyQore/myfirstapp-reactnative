@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     borderWidth: 10,
     borderColor: 'white',
-    position: 'absolute',
+    //position: 'absolute',
     //left: 0,
     //bottom: 0
     ...StyleSheet.absoluteFillObject
