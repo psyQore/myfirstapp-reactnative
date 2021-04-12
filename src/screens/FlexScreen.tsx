@@ -18,23 +18,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'purple',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end'
+    // justifyContent: 'flex-end',
+    alignItems: 'flex-start',
   },
   box1: {
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
+    // alignSelf: 'center',
   },
   box2: {
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
+    // alignSelf: 'flex-start'
   },
   box3: {
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
+    // alignSelf: 'flex-end'
   },
 });
 
