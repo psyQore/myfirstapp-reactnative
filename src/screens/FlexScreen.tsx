@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'purple',
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
   },
   box1: {
     borderWidth: 2,
