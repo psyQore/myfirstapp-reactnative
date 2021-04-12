@@ -17,9 +17,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'purple',
-    flexDirection: 'row',
+    // flexDirection: 'column',
     // justifyContent: 'flex-end',
     alignItems: 'flex-start',
+    flexWrap: 'wrap',
   },
   box1: {
     borderWidth: 2,
