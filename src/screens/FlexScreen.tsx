@@ -17,21 +17,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'purple',
+    flexDirection: 'column',
   },
   box1: {
-    flex: 4,
+    flex: 1,
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
   },
   box2: {
-    flex: 5,
+    flex: 2,
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
   },
   box3: {
-    flex: 1,
+    flex: 6,
     borderWidth: 2,
     borderColor: 'white',
     fontSize: 30,
